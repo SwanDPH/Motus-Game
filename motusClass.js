@@ -13,11 +13,18 @@ class Parties {
         this.motDonner = motDonner
         this.tour = 0
     }
-    LancementPartie() {
-        // si Le PROMPT Donné correspond au Mot chercher
-        this.motDonner = prompt("Donner un mot")
 
-        this.tourSuivant()
+    
+    lancementPartie() {
+        let i = 0
+        
+        while (i < 3) {
+            this.motDonner = prompt("Donner un mot")
+            console.log(`Voici le mot donner : ${this.motDonner}`);
+            console.log(`Voici le mot a détecter : ${this.motADetecter}`);
+            this.tourSuivant()
+            i++
+        }
         return true
     }
 
@@ -33,12 +40,19 @@ console.log(`voici le tour actuel : ${this.tour}`);
 
 
     aGagne() {
-        if (this.motADetecter == this.motDonner && this.tour < 6) {
-            console.log("vous avez GAGNER");
-        } else {
-            console.log("vous avez PERDU");
+        if (this.tour > 6){
+            console.log("tu as perdu");
+            return false
+        } 
+        else if (this.motDonner == this.motADetecter) {
+            console.log('tu as gagné');
+            return true
+        } 
+        else {
+            console.log("Tente encore ta chance !");
             return false
         }
+
         return true
     }
 }

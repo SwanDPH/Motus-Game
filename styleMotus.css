@@ -9,9 +9,10 @@ body{
     display: flex;
     justify-content: center;
     flex-direction: row;
+    position: absolute;
+    top: 298px;
 }
-span{
-    margin-left: 45px;
+em{
     font-size: 55px;
 }
 
@@ -34,11 +35,15 @@ span{
 
 .promptZone{
     position: absolute;
-    width: 555px;
-    height: 0px;
+    width: 577px;
+    height: auto;
     top: 21px;
     display: flex;
     flex-direction: column;
+    border: 1px black dashed;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
 }
 
 
@@ -69,6 +74,105 @@ span{
     width: 250px;
     height:50px;
 }
+
+.zoneTour{
+    background-color: rgb(211, 96, 96);
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    position: absolute;
+    left: 24px;
+    top: 19px;
+    width: 100Px;
+    height: 100Px;
+    font-size: 25px;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    color: whitesmoke;
+}
+
+.titreZoneTour{
+    display: flex;
+    border-bottom: solid rgb(235, 235, 235) 5px;
+    width: 109px;
+    align-items: center;
+    justify-content: center;
+}
+
+.tourActuel, .tourMax{
+    font-size: 32px;
+}
+
+.tourActuel{
+    animation: clignoter 1.5s linear infinite;
+}
+
+@keyframes clignoter {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+input {
+    width: 71%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    font-size: 16px;
+    color: #333;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  input:focus {
+    outline: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  button:hover {
+    background-color: #555;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #333;
+  }
+
+
+.zoneIndice{
+    display: flex;
+    width: 80%;
+    height: auto;
+    flex-direction: column;
+    position: absolute;
+    top: 155px;
+    border: rgb(215, 215, 215) solid 1px;
+    align-items: center;
+    justify-content: center;
+}
+
 
 
 

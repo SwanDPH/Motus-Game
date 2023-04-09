@@ -8,11 +8,42 @@
     <title>Motus'Game</title>
 </head>
 
-<button onclick="partie1.tourSuivant()">valider</button>
+<button onclick="">valider</button>
 
 <body>
+    <div class="promptZone">
+        <input type="text" class="promptUser">
+        <button class="valideChoixUser">validé</button>
+    </div>
     
-</body>
+    <div class="zoneMot">
+        <div class="case">
+            <span class="lettre L1 invisible">L1</span>
+        </div>
+        <div class="case">
+            <span class="lettre L2 invisible">L2</span>
+        </div>
+        <div class="case">
+            <span class="lettre L3 invisible">L3</span>
+        </div>
+        <div class="case">
+            <span class="lettre L4 invisible">L4</span>
+        </div>
+        <div class="case">
+            <span class="lettre L5 invisible">L5</span>
+        </div>
+    </div>
+    
+    <div class="affichageGagne">
+        <p>Mes félicitations</p>
+        <p>Vous avez Gagné !</p>
+        <div class="zoneRejouerAnnuler">
+        <button>rejouer</button>
+        <button>annulé</button>
+        </div>
+    </div>
+    
+    </body>
 
 
 <script src="motusClass.js"></script>

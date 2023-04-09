@@ -7,7 +7,7 @@ class Joueurs {
 
 
 class Parties {
-    constructor(joueurActuel, motADetecter, motDonner, tour, plateauDeJeu) {
+    constructor(joueurActuel, motADetecter, motDonner, tour) {
         this.joueurActuel = joueurActuel
         this.motADetecter = "chien"
         this.motDonner = motDonner
@@ -16,10 +16,10 @@ class Parties {
 
     
     lancementPartie() {
-        let i = 0
-        
-        while (i < 3) {
+        let tourMax = 7
+        while (this.aGagne() == false && this.tour < tourMax) {
             this.motDonner = prompt("Donner un mot")
+            console.log(`AGagner est sur  : ${this.aGagne()}`);
             console.log(`Voici le mot donner : ${this.motDonner}`);
             console.log(`Voici le mot a détecter : ${this.motADetecter}`);
             this.tourSuivant()
@@ -40,19 +40,12 @@ console.log(`voici le tour actuel : ${this.tour}`);
 
 
     aGagne() {
-        if (this.tour > 6){
-            console.log("tu as perdu");
-            return false
-        } 
-        else if (this.motDonner == this.motADetecter) {
+        if (this.motDonner == this.motADetecter) {
             console.log('tu as gagné');
-            return true
-        } 
-        else {
+        } else {
             console.log("Tente encore ta chance !");
             return false
         }
-
         return true
     }
 }

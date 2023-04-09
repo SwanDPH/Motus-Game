@@ -1,0 +1,85 @@
+body{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding-top: 55px;
+}
+
+.zoneMot{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+span{
+    margin-left: 45px;
+    font-size: 55px;
+}
+
+
+.case {
+    display: inline-block;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    width: 150px;
+    height: 150px;
+    border: 1px solid #ccc;
+    border-bottom: 3px solid #b1aeae;
+    margin: 10px;
+    padding: 10px;
+    background-color: #f2f2f2;
+}
+
+.promptZone{
+    position: absolute;
+    width: 555px;
+    height: 0px;
+    top: 21px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+
+.affichageGagne{
+    display: none;
+    font-size: 55px;
+    position: absolute;
+    padding: 29px 0px;
+    top: 232px;
+    background-color: rgb(232, 232, 232);
+    width: 716px;
+    height: 284px;
+    border-radius: 22px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border: solid 2px #b8b8b8;
+}
+
+.zoneRejouerAnnuler{
+    border: solid 2px #b8b8b8;
+    display: flex;
+}
+.zoneRejouerAnnuler>button{
+    width: 250px;
+    height:50px;
+}
+
+
+
+
+
+.invisible{
+    display: none;
+    opacity: 0%;
+    transition: all 0.2s ease-in;
+}
+.visible{
+    display: flex;
+    opacity: 100%;
+}

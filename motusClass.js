@@ -16,10 +16,9 @@ class Parties {
 
     lancementPartie() {
         let tourMax = 7
-        
         while (this.aGagne() == false && this.tour < tourMax) {
-            this.motDonner = prompt("Donner un mot")
-            // this.motDonner = document.querySelector('.promptUser').value
+            // this.motDonner = prompt("Donner un mot")
+            this.motDonner = document.querySelector('.promptUser').value
             // console.log(`Mot donner est  : ${this.motDonner()}`);
 
             // C'est ici que nous entrons dans les différents string et affichons le resultat du 1er tour
@@ -68,7 +67,6 @@ class Parties {
     afficherLettreDansHtml(){
         let tableauMots = ["Pomme", "chien", "Fleur", "Table", "Faute", "Livre", "Idée", "Oiseau"]
         let lettresHtml = document.querySelectorAll('span')
-        let lettresMotDonner = []
 
         for (let i = 0; i < this.motADetecter.length; i++) {
             console.log(`mot choisit index : ${i} et Lettre : "${this.motADetecter[i]}"`);
@@ -79,16 +77,10 @@ class Parties {
                 if (this.motADetecter[i] == this.motDonner[y]) {
                     console.error("Gagné " + "/" + this.motADetecter[i] + "/");
 
-                    lettresMotDonner.push(this.motADetecter[i])
-                    console.error("Voici le tableau des gagnes Lettre " + "/" + lettresMotDonner + "/");
-
                     lettresHtml[i].innerHTML = this.motDonner[y]
                     lettresHtml[i].classList.add('visible')
                 }
-                console.log("1111 "+lettresMotDonner);
             }
-            console.log("2222 "+lettresMotDonner);
-        }  
-        console.log("3333 "+lettresMotDonner);       
+        }       
     }
 }

@@ -9,9 +9,16 @@ body{
     display: flex;
     justify-content: center;
     flex-direction: row;
-    position: absolute;
-    top: 298px;
+    top: 8px;
+    border: solid 2px red;
 }
+.affichageChoixUtilisateur{
+    display: flex;
+    flex-direction: column;
+}
+
+
+
 em{
     font-size: 55px;
 }
@@ -177,6 +184,14 @@ input {
 
 
 
+
+.wellplaced{
+  background-color: orange;
+}
+
+.misplaced{
+  background-color: yellow;
+}
 
 .invisible{
     display: none;

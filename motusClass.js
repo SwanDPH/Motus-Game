@@ -15,58 +15,73 @@ class Parties {
         this.tour = 0
     }
 
+    affichagePremiereLettreMotADetecter(){
+        let premiereLettreMotDonner = this.motADetecter[0]
+        let lettre1 = document.querySelector(".L1")
+
+        lettre1.innerHTML = premiereLettreMotDonner
+    }
+
+
     lancementPartie() {
-        let tourMax = 7
+        let tourMax = 10
+        let divDeRefereferenceHTML = document.querySelector('.affichageChoixUtilisateur')
+        let LigneDivDeRefereferenceHTML = document.createElement('div')
+                                        LigneDivDeRefereferenceHTML.classList.add('zoneMot')
+                                        divDeRefereferenceHTML.appendChild(LigneDivDeRefereferenceHTML)
+        
+                while (this.aGagne() == false && this.tour < tourMax) {
+                    // this.motDonner = prompt("Donner un mot")
+                    this.motDonner = document.querySelector('.promptUser').value
 
-        while (this.aGagne() == false && this.tour < tourMax) {
-            // this.motDonner = prompt("Donner un mot")
-            this.motDonner = document.querySelector('.promptUser').value
-            if (this.motDonner == "") {
-                console.log(("nous avons besoin d un mot"));
-                break
-            }
+                    if (this.motDonner == "") {
+                        console.log(("nous avons besoin d un mot"));
+                        break
+                    }
 
-            // C'est ici que nous entrons dans les différents string et affichons le resultat du 1er tour
+                    // C'est ici que nous entrons dans les différents string et affichons le resultat du 1er tour
 
-            for (let i = 0; i < this.motADetecter.length; i++) {
-                for (let y = 0; y < this.motDonner.length; y++) {
-                    this.afficherLettreDansHtml(i, y)
+                    for (let i = 0; i < this.motADetecter.length; i++) {
+                        for (let y = 0; y < this.motDonner.length; y++) {
+                            this.afficherLettreDansHtml(i, y)
+                            let lettreDuMotDonner = this.motDonner[y]
+                            console.log(`voici les lettres ${lettreDuMotDonner}`)
+                        }
+                    this.affichageMotDonner(LigneDivDeRefereferenceHTML,i)
+                    }
+                    this.aGagne()
+                    this.tourSuivant()
+
+                    if (this.motDonner == this.motDonner) {
+                        this.motDonner = document.querySelector('.promptUser').value
+                        console.log(("Rentre un NOUVEAU mot"));
+                        break
+                    }
                 }
-            }
-            this.aGagne()
-            this.tourSuivant()
+                return true
+    }
 
-            if (this.motDonner == this.motDonner) {
-                this.motDonner = document.querySelector('.promptUser').value
-                console.log(("Rentre un NOUVEAU mot"));
-                break
-            }
-        }
-
-        return true
+    affichageMotDonner(LigneDivDeRefereferenceHTML,indexMotDonner){
+        let nouvelleCaseHTML = document.createElement("div")
+                                nouvelleCaseHTML.classList.add('case')
+        let nouveauSpanHTML = document.createElement("span")
+                                nouveauSpanHTML.classList.add('lettre')
+                                nouveauSpanHTML.innerHTML = this.motDonner[indexMotDonner]
+    
+        LigneDivDeRefereferenceHTML.appendChild(nouvelleCaseHTML)
+        nouvelleCaseHTML.appendChild(nouveauSpanHTML)
     }
 
     tourSuivant() {
-        // si le mot donné ne correspond pas totalement ou si les lettres qu'il
-        // vient de trouver match avec toutes les autres lettres a trouver
-        console.log(`voici le tour précédent : ${this.tour}`);
+        console.log(`debut, tout n°${this.tour}`);
         this.tour++
-        console.log(`voici le tour actuel : ${this.tour}`);
+        console.log(`FIN, tout n°${this.tour}`);
         return true
     }
 
-
     aGagne() {
-        let lettre1 = document.querySelector('.L1')
-        let lettre2 = document.querySelector('.L2')
-        let lettre3 = document.querySelector('.L3')
-        let lettre4 = document.querySelector('.L4')
-        let lettre5 = document.querySelector('.L5')
-
-        if (this.motDonner == this.motADetecter && this.tour == 1) {
-            console.log('tu as gagné en une fois, Trop Fort !');
-        } else if (lettre1.classList.contains('visible') == true && lettre2.classList.contains('visible') == true && lettre3.classList.contains('visible') == true && lettre4.classList.contains('visible') == true && lettre5.classList.contains('visible') == true) {
-            console.log(`tu as gagné au bout du ${this.tour}`);
+        if (this.motDonner == this.motADetecter) {
+            console.log('tu as gagné!');
         } else {
             console.log("Tente encore ta chance !");
             return false
@@ -74,10 +89,22 @@ class Parties {
         return true
     }
 
+
+    
+
     afficherLettreDansHtml(indexMotADetecter, indexMotDonner) {
         let lettresHtml = document.querySelectorAll('span')
+
+
         if (this.motADetecter[indexMotADetecter] == this.motDonner[indexMotDonner]) {
-            console.error("Gagné " + "/" + this.motADetecter[indexMotADetecter] + "/");
+            console.error("MOT DONNER " +"Gagné " + "/" + this.motDonner[indexMotDonner] + "/" +" qui est à l'index "+[indexMotDonner])
+            console.error("MOT A DETECTER " +"Gagné " + "/" + this.motADetecter[indexMotADetecter] + "/" +" qui est à l'index "+[indexMotADetecter])
+
+            if (indexMotADetecter == indexMotDonner) {
+                console.error(`Ici, nous mettrons "Lettre BIEN PLACEE" car ${this.motADetecter[indexMotADetecter]} est à l'index ${[indexMotADetecter]}`)
+            
+            }
+
             lettresHtml[indexMotADetecter].innerHTML = this.motDonner[indexMotDonner]
             lettresHtml[indexMotADetecter].classList.add('visible')
         }

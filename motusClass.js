@@ -15,6 +15,7 @@ class Parties {
     }
 
     lancementPartie() {
+        let tableauMots = ["Pomme", "chien", "Fleur", "Table", "Faute", "Livre", "Idée", "Oiseau"]
         let tourMax = 7
         while (this.aGagne() == false && this.tour < tourMax) {
             // this.motDonner = prompt("Donner un mot")
@@ -27,8 +28,9 @@ class Parties {
 
                 for (let y = 0; y < this.motDonner.length; y++) {
                     console.log(`mot PROMPT index : ${y} et Lettre : "${this.motDonner[y]}"`);
+                    
+                    this.afficherLettreDansHtml(i,y)
                 }
-                this.afficherLettreDansHtml()
             }
             this.tourSuivant()
         }
@@ -64,23 +66,14 @@ class Parties {
         return true
     }
 
-    afficherLettreDansHtml(){
-        let tableauMots = ["Pomme", "chien", "Fleur", "Table", "Faute", "Livre", "Idée", "Oiseau"]
+    afficherLettreDansHtml(indexMotADetecter, indexMotDonner){
         let lettresHtml = document.querySelectorAll('span')
 
-        for (let i = 0; i < this.motADetecter.length; i++) {
-            console.log(`mot choisit index : ${i} et Lettre : "${this.motADetecter[i]}"`);
-        
-            for (let y = 0; y < this.motDonner.length; y++) {
-                console.log(`mot motDonner index : ${y} et Lettre : "${this.motDonner[y]}"`);
-        
-                if (this.motADetecter[i] == this.motDonner[y]) {
-                    console.error("Gagné " + "/" + this.motADetecter[i] + "/");
-
-                    lettresHtml[i].innerHTML = this.motDonner[y]
-                    lettresHtml[i].classList.add('visible')
+                if (this.motADetecter[indexMotADetecter] == this.motDonner[indexMotDonner]) {
+                    console.error("Gagné " + "/" + this.motADetecter[indexMotADetecter] + "/");
+                    
+                    lettresHtml[indexMotADetecter].innerHTML = this.motDonner[indexMotDonner]
+                    lettresHtml[indexMotADetecter].classList.add('visible')
                 }
-            }
-        }       
     }
 }

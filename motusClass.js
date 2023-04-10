@@ -8,6 +8,7 @@ class Joueurs {
 
 class Parties {
     constructor(joueurActuel, motADetecter, motDonner, tour) {
+        this.tableauMotsAleatoire = ["Pomme", "chien", "Fleur", "Table", "Faute", "Livre", "Idée", "Oiseau"]
         this.joueurActuel = joueurActuel
         this.motADetecter = "chien"
         this.motDonner = ""
@@ -15,25 +16,33 @@ class Parties {
     }
 
     lancementPartie() {
-        let tableauMots = ["Pomme", "chien", "Fleur", "Table", "Faute", "Livre", "Idée", "Oiseau"]
         let tourMax = 7
+
         while (this.aGagne() == false && this.tour < tourMax) {
             // this.motDonner = prompt("Donner un mot")
             this.motDonner = document.querySelector('.promptUser').value
-            // console.log(`Mot donner est  : ${this.motDonner()}`);
+            if (this.motDonner == "") {
+                console.log(("nous avons besoin d un mot"));
+                break
+            }
 
             // C'est ici que nous entrons dans les différents string et affichons le resultat du 1er tour
-            for (let i = 0; i < this.motADetecter.length; i++) {
-                console.log(`mot a DETECTER index : ${i} et Lettre : "${this.motADetecter[i]}"`);
 
+            for (let i = 0; i < this.motADetecter.length; i++) {
                 for (let y = 0; y < this.motDonner.length; y++) {
-                    console.log(`mot PROMPT index : ${y} et Lettre : "${this.motDonner[y]}"`);
-                    
-                    this.afficherLettreDansHtml(i,y)
+                    this.afficherLettreDansHtml(i, y)
                 }
             }
+            this.aGagne()
             this.tourSuivant()
+
+            if (this.motDonner == this.motDonner) {
+                this.motDonner = document.querySelector('.promptUser').value
+                console.log(("Rentre un NOUVEAU mot"));
+                break
+            }
         }
+
         return true
     }
 
@@ -43,7 +52,6 @@ class Parties {
         console.log(`voici le tour précédent : ${this.tour}`);
         this.tour++
         console.log(`voici le tour actuel : ${this.tour}`);
-        this.aGagne()
         return true
     }
 
@@ -55,9 +63,9 @@ class Parties {
         let lettre4 = document.querySelector('.L4')
         let lettre5 = document.querySelector('.L5')
 
-        if (this.motDonner == this.motADetecter) {
+        if (this.motDonner == this.motADetecter && this.tour == 1) {
             console.log('tu as gagné en une fois, Trop Fort !');
-        } else if (lettre1.classList.contains('visible')==true && lettre2.classList.contains('visible')==true && lettre3.classList.contains('visible')==true && lettre4.classList.contains('visible')==true && lettre5.classList.contains('visible')==true) {
+        } else if (lettre1.classList.contains('visible') == true && lettre2.classList.contains('visible') == true && lettre3.classList.contains('visible') == true && lettre4.classList.contains('visible') == true && lettre5.classList.contains('visible') == true) {
             console.log(`tu as gagné au bout du ${this.tour}`);
         } else {
             console.log("Tente encore ta chance !");
@@ -66,14 +74,12 @@ class Parties {
         return true
     }
 
-    afficherLettreDansHtml(indexMotADetecter, indexMotDonner){
+    afficherLettreDansHtml(indexMotADetecter, indexMotDonner) {
         let lettresHtml = document.querySelectorAll('span')
-
-                if (this.motADetecter[indexMotADetecter] == this.motDonner[indexMotDonner]) {
-                    console.error("Gagné " + "/" + this.motADetecter[indexMotADetecter] + "/");
-                    
-                    lettresHtml[indexMotADetecter].innerHTML = this.motDonner[indexMotDonner]
-                    lettresHtml[indexMotADetecter].classList.add('visible')
-                }
+        if (this.motADetecter[indexMotADetecter] == this.motDonner[indexMotDonner]) {
+            console.error("Gagné " + "/" + this.motADetecter[indexMotADetecter] + "/");
+            lettresHtml[indexMotADetecter].innerHTML = this.motDonner[indexMotDonner]
+            lettresHtml[indexMotADetecter].classList.add('visible')
+        }
     }
 }

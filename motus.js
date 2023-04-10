@@ -4,7 +4,6 @@ let bouttonLancement = document.querySelector('.valideChoixUser')
 
 bouttonLancement.addEventListener('click', function () {
     partie1.lancementPartie()
-    partie1.afficherLettreDansHtml()
-    partie1.tourSuivant()
 })
-console.log(`La fonction aGagner() est égal à : ${partie1.aGagne()}`);
+// console.log(`La fonction aGagner() est égal à : ${partie1.aGagne()}`);
+

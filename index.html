@@ -11,8 +11,8 @@
 <body>
     <div class="promptZone">
         <label for="">Rentre une réponse</label>
-        <input type="text" class="promptUser">
-        <button class="valideChoixUser">validé</button>
+        <input type="text" class="promptUser" placeholder="Donne un mot" maxlength="5" mminlength="5" required>
+        <button class="valideChoixUser" type="submit">validé</button>
     </div>
     
 <div class="zoneTour">
@@ -27,24 +27,46 @@
 </div> -->
 
 <div class="affichageChoixUtilisateur">
-    <div class="zoneMot">
+    <div class="zoneMotDevine">
         <div class="case">
-            <span class="lettre L1 visible">L1</span>
+            <span class="lettreMotADetecter L1 visible">L1</span>
         </div>
         <div class="case">
-            <span class="lettre L2 invisible">L2</span>
+            <span class="lettreMotADetecter L2 invisible">L2</span>
         </div>
         <div class="case">
-            <span class="lettre L3 invisible">L3</span>
+            <span class="lettreMotADetecter L3 invisible">L3</span>
         </div>
         <div class="case">
-            <span class="lettre L4 invisible">L4</span>
+            <span class="lettreMotADetecter L4 invisible">L4</span>
         </div>
         <div class="case">
-            <span class="lettre L5 invisible">L5</span>
+            <span class="lettreMotADetecter L5 invisible">L5</span>
         </div>
     </div>
-</div>
+
+
+
+
+    <div class="zoneMotDonne">
+        <div class="case">
+            <span class="lettreMotDonne L1 visible">L1</span>
+        </div>
+        <div class="case">
+            <span class="lettreMotDonne L2 invisible visible">L2</span>
+        </div>
+        <div class="case">
+            <span class="lettreMotDonne L3 invisible visible">L3</span>
+        </div>
+        <div class="case">
+            <span class="lettreMotDonne L4 invisible visible">L4</span>
+        </div>
+        <div class="case">
+            <span class="lettreMotDonne L5 invisible visible">L5</span>
+        </div>
+    </div>
+
+    
     
     <div class="affichageGagne">
         <p>Mes félicitations</p>

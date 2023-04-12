@@ -3,6 +3,8 @@ let partie1 = new Parties(joueur1,this,this,this)
 let bouttonLancement = document.querySelector('.valideChoixUser')
 
 
+
+
 bouttonLancement.addEventListener('click', function () {
     partie1.algorithmeDunTour()
 })

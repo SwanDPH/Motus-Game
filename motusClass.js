@@ -27,35 +27,52 @@ algorithmeDunTour(){
 
         this.verifValeurMotDonner()
         
-        this.aGagner(this.motDonner, this.motADetecter)
+        if (this.verifValeurMotDonner() == false) {
+                    let modalErreur5Lettres = document.querySelector('.modale')
+                    modalErreur5Lettres.style.display ='block'
 
-                while (this.aGagner() != true && this.tour < tourMax) {
-                    this.nettoyageCase()
+                    let fermetureModal = document.querySelector('.fermeture')
+                    fermetureModal.addEventListener('click', function () {
+                        modalErreur5Lettres.style.display='none'
+                    })
                     
-                    while (i< this.motADetecter.length) {
-                        this.tabMotADetecter.push(this.motADetecter[i])
-                        i++
-                    }
-                    console.log(`tableau lettre à detecter = ${this.tabMotADetecter}`);
-    
-                    while (y< this.motDonner.length) {
-                        this.tabMotDonne.push(this.motDonner[y])
-                        y++
-                    }
-                    console.log(`tableau lettre à donner = ${this.tabMotDonne}`);
-    
-                    this.afficherLesTableaux(this.tabMotADetecter, this.tabMotDonne)
-                    this.comparaisonDeuxTableaux(this.tabMotADetecter, this.tabMotDonne)
-                    this.tourSuivant(tourMax)
-                            
-                            if (this.motDonner == this.motDonner) {
-                                this.motDonner = document.querySelector('.promptUser').value
-                                console.log(("Rentre un NOUVEAU mot"));
-                                break
+        } else {
+                    this.aGagner(this.motDonner, this.motADetecter)
+
+                    if (this.aGagner() == true) {
+                        console.log(`Génial tu as GAGGGGGNER`)
+                        let zoneGagne = document.querySelector('.zoneGagne')
+                        zoneGagne.classList.remove('invisible')
+                    } else {
+                            while (this.aGagner() != true && this.tour < tourMax) {
+                                this.nettoyageCase()
+                                
+                                while (i< this.motADetecter.length) {
+                                    this.tabMotADetecter.push(this.motADetecter[i])
+                                    i++
+                                }
+                                console.log(`tableau lettre à detecter = ${this.tabMotADetecter}`);
+                
+                                while (y< this.motDonner.length) {
+                                    this.tabMotDonne.push(this.motDonner[y])
+                                    y++
+                                }
+                                console.log(`tableau lettre à donner = ${this.tabMotDonne}`);
+                
+                                this.afficherLesTableaux(this.tabMotADetecter, this.tabMotDonne)
+                                this.comparaisonDeuxTableaux(this.tabMotADetecter, this.tabMotDonne)
+                                this.tourSuivant(tourMax)
+                                        
+                                        if (this.motDonner == this.motDonner) {
+                                            this.motDonner = document.querySelector('.promptUser').value
+                                            console.log(("Rentre un NOUVEAU mot"));
+                                            break
+                                        }
+                                
                             }
-                    
-                }
-            }
+                            }
+                        }
+}
 
 nettoyageCase(){
     let spanHTML = document.querySelectorAll("span")
@@ -109,7 +126,6 @@ tourSuivant(tourMax) {
 
 verifValeurMotDonner(){
     if (this.motDonner.length < 5) {
-        alert('Il faut renseigné un mot de 5 lettre minimum')
         return false
     }
     return true
@@ -126,7 +142,7 @@ aGagner(){
         motADetecterHTML.innerHTML= this.motDonner
         nbTourHTML.innerHTML= this.tour
 
-        
+
         return true
     }
         if (this.tour == 10) {

@@ -27,12 +27,12 @@
     <div class="zoneGagne invisible">
         <div class="affichageGagne">
             <p>Félicitations</p>
-            <p>Vous avez Gagné !</p>
-            <p>Le mot à trouvé était : <em class="motAdeviner"></em></p>
-            <p>Et vous l'avez trouvé en <em class="nbTourActuel"></em></p>
+            <p>Bravo, vous avez Gagné !</p>
+            <p>Le mot à trouvé était : <p class="motAdeviner"></p></p>
+            <p>Nombre de tentative : <p class="nbTourActuel"></p></p>
             <div class="zoneRejouerAnnuler">
-                <button>rejouer</button>
-                <button>annulé</button>
+                <button class="rejouer">Rejouer</button>
+                <button class="quitterJeu">Quitter</button>
             </div>
         </div>
     </div>
@@ -52,7 +52,8 @@
             <p>Indice :<br class="indiceHTML">Fruit, rouge ou vert, comestible, riche en vitamines</br></p>
         </div>
 
-        <p>Le mot à deviner :</p>
+        <div class="conteneurMotEtAffichageMot">
+        <p>Le mot à deviner ...</p>
         <div class="zoneMotDevine">
             <div class="case caseMotADetecter">
                 <span class="lettreMotADetecter L1 visible">L1</span>
@@ -70,8 +71,10 @@
                 <span class="lettreMotADetecter L5 invisible">L5</span>
             </div>
         </div>
+        </div>
 
-        <p>Mot rentré Utilisateur :</p>
+        <div class="conteneurMotEtAffichageMot">
+        <p class="motUtilisateur" style="margin-left: -657px;">Mot rentré Utilisateur :</p>
         <div class="zoneMotDonne">
             <div class="case">
                 <span class="lettreMotDonne L1 visible">L1</span>
@@ -89,10 +92,16 @@
                 <span class="lettreMotDonne L5 invisible visible">L5</span>
             </div>
         </div>
+    </div>
 
     </div>
 
-
+    <div class="modale">
+        <div class="contenuModal">
+          <span class="fermeture">&times;</span>
+          <p>Veuillez entrer un mot d'au moins 5 lettres</p>
+        </div>
+      </div>
 
 
 

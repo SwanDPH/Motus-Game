@@ -79,17 +79,29 @@ em {
   justify-content: center;
 }
 
+.conteneurMotEtAffichageMot{
+  
+}
+.conteneurMotEtAffichageMot>p{
+  margin-left: -363px;
+  margin-bottom: -7px;
+}
 
+.motUtilisateur{
+  margin-left: -363px;
+
+}
 
 
 
 .zoneGagne {
+  position: fixed;
+  z-index: 1;
   display: flex;
-  height: 100%;
+  height: 102%;
   width: 100%;
   background-color: #555;
   color: whitesmoke;
-  border-radius: 3px;
   justify-content: center;
   align-content: center;
 }
@@ -282,4 +294,55 @@ label {
   left: 904px;
 
   background-color: orange;
+}
+
+
+
+
+.modale {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.contenuModal {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.fermeture {
+  cursor: pointer;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+p {
+  font-size: 18px;
+  text-align: center;
+}
+
+
+.motAdeviner{
+  color: rgb(169, 45, 45);
+}
+
+.nbTourActuel{
+  color: rgb(196, 46, 46);
 }

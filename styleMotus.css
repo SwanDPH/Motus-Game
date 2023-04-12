@@ -157,8 +157,6 @@ em {
   width: 250px;
   height: 50px;
 }
-
-
 .affichageTour{
   display: flex;
   flex-direction: row;

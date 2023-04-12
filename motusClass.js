@@ -34,6 +34,18 @@ class Parties {
         this.tabMotDonne = []
         this.tour = 0
     }
+
+rejouer(){
+    let affichageGagne = document.querySelector('.zoneGagne')
+                affichageGagne.classList.add('invisible')
+
+    this.indexTabRandom = Math.floor(Math.random()* (this.tableauMotsAleatoire.length - 0) + 0)
+    this.motADetecter = this.tableauMotsAleatoire[this.indexTabRandom].toLowerCase()
+    this.indiceMotADetecter = this.tableauIndice[this.indexTabRandom]
+
+    this.algorithmeDunTour()
+}
+
 algorithmeDunTour(){
     let i = 0
     let y = 0
@@ -166,11 +178,15 @@ algorithmeDunTour(){
                 let affichageGagne = document.querySelector('.affichageGagne')
                 let motADetecterHTML = document.querySelector('.motAdeviner')
                 let nbTourHTML = document.querySelector('.nbTourActuel')
-                
-                
+                let quitterJeuHTML = document.querySelector('.quitterJeu')
+                let ddd = document.querySelector('.quitterJeu')
                 affichageGagne.classList.remove('invisible')
                 motADetecterHTML.innerHTML= this.motDonner
                 nbTourHTML.innerHTML= this.tour
+
+                quitterJeuHTML.addEventListener('click', function () {
+                    alert('A la prochaine')
+                })
 
 
                 return true

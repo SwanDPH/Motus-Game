@@ -1,14 +1,54 @@
-* {font-family: 'Comfortaa', cursive;
+* {
   font-family: 'Roboto', sans-serif;
+  padding: 0;
+  margin: 0;
 }
 
+
+.deuxiemePage{
+  background-color: #2d2c26;
+  color: whitesmoke;
+}
 
 body {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  height: 100%;
 }
+
+.svgDisquette{
+  left: 97px;
+  position: relative;
+}
+
+.premierePage{
+  display: flex;
+  background-color: #ffeb7d;
+  width: 100%;
+  height: 1317px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  align-content: center;
+}
+
+.constructionJoueur{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  align-content: center;
+  width: 100%;
+  height: 100%;
+
+}
+
+
+
+
+
+
+
 
 .affichageChoixUtilisateur {
   width: 100%;
@@ -54,6 +94,7 @@ em {
   padding: 10px;
   background-color: #f2f2f2;
   font-size: 35px;
+  color: #2d2c26;;
 }
 
 
@@ -67,7 +108,7 @@ em {
   display: flex;
   width: 50%;
   flex-direction: column;
-  background-color: rgb(224, 224, 224);
+  background-color: #ffbb72;
   border: 1px black solid;
   align-content: center;
   align-items: center;
@@ -95,19 +136,20 @@ em {
 
 
 .zoneGagne {
-  position: fixed;
+  position: absolute;
   z-index: 1;
   display: flex;
-  height: 102%;
+  height: 100%;
   width: 100%;
   background-color: #555;
   color: whitesmoke;
-  justify-content: center;
-  align-content: center;
+  align-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .zoneRejouerAnnuler {
-  border: solid 2px #b8b8b8;
   display: flex;
 }
 
@@ -116,35 +158,39 @@ em {
   height: 50px;
 }
 
+
+.affichageTour{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 22px;
+}
+
 .zoneTour {
-  background-color: rgb(211, 96, 96);
-  padding: 12px;
-  display: flex;
-  flex-direction: column;
-  border-radius: 10px;
+    top: 11px;
+    left: 11px;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    border-radius: 3px;
+    border: rgb(206, 203, 203) solid 1px;
+    width: 71px;
+    height: 65px;
+}
+
+.titreZoneTour::after {
+  content: "";
+  background-color: rgb(206, 203, 203);
+  width: 54px;
+  height: 1px;
   position: absolute;
-  left: 24px;
-  top: 19px;
-  width: 100Px;
-  height: 100Px;
-  font-size: 25px;
-  align-items: center;
-  justify-content: center;
-  align-content: center;
-  color: whitesmoke;
+  top: 37px;
+  left: 10px;
 }
 
-.titreZoneTour {
-  display: flex;
-  border-bottom: solid rgb(235, 235, 235) 5px;
-  width: 109px;
-  align-items: center;
-  justify-content: center;
-}
-
-.tourActuel,
-.tourMax {
-  font-size: 32px;
+.tourActuel,.tourMax {
+  font-size: 18px;
 }
 
 .tourActuel {
@@ -183,14 +229,14 @@ input:focus {
 }
 
 button {
+  margin-top: 10px;
   padding: 10px 20px;
   background-color: #333;
-  border: none;
   border-radius: 5px;
   font-size: 18px;
   color: #fff;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 button:hover {
@@ -217,32 +263,31 @@ label {
 }
 
 .zoneIndice>p {
-  font-size: 22px;
-  position: relative;
-  margin-top: px;
-  letter-spacing: 6px;
-  top: -23px;
+  font-size: 16px;
+    position: relative;
+    letter-spacing: 6px;
+    top: -23px;
 }
 
 .indiceHTML {
-  margin-top: -20px;
+  margin-top: 11px;
 }
 
 
 .wellplaced {
-  background-color: orange;
-  width: 100%;
-  padding: 5px;
-  border-radius: 5px;
-  height: 100%;
+  background: linear-gradient(337deg, rgba(0,0,0,0) 0%, rgba(255,187,114,1) 97%);;
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    height: 100%;
 }
 
 .misplaced {
-  background-color: yellow;
-  width: 100%;
-  padding: 5px;
-  border-radius: 5px;
-  height: 100%;
+    background: linear-gradient(337deg, rgba(0,0,0,0) 0%, rgba(255,233,122,1) 97%);
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    height: 100%;
 }
 
 .invisible {
@@ -313,6 +358,7 @@ label {
 
 .contenuModal {
   background-color: #fefefe;
+  color: black;
   margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
@@ -340,9 +386,11 @@ p {
 
 
 .motAdeviner{
-  color: rgb(169, 45, 45);
+  font-size: 22px;
+  color: #ffeb7d;
 }
 
 .nbTourActuel{
-  color: rgb(196, 46, 46);
+  font-size: 22px;
+  color: #ffeb7d;
 }

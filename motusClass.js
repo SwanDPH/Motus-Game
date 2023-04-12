@@ -9,6 +9,7 @@ class Joueurs {
 class Parties {
     constructor(joueurActuel, motADetecter, motDonner, tour) {
         this.tableauMotsAleatoire = ["Pomme", "chien", "Fleur", "Table", "Faute", "Livre", "Idée", "Oiseau"]
+        this.tableauIndice = ["Fruit, rouge ou vert, comestible, riche en vitamines", "Animal domestique, mammifère, souvent utilisé comme animal de compagnie ou de garde", "Choses colorées, souvent utilisée pour décorer et offrir en cadeau", "Meuble plat, souvent utilisé pour manger, travailler ou étudier", "Erreur, quelque chose de mal fait ou dit", "Objet imprimé, souvent relié, contenant des informations, des histoires ou des instructions", "une pensée ou un concept abstrait dans l'esprit d'une personne", "un animal volant avec des plumes et un bec pointu."]
         this.joueurActuel = joueurActuel
         this.motADetecter = "chien"
         this.motDonner = ""
@@ -24,8 +25,10 @@ algorithmeDunTour(){
     this.tabMotDonne = []
     let tourMax = 10
 
-        this.aGagner(this.motDonner, this.motADetecter)
+        this.verifValeurMotDonner()
         
+        this.aGagner(this.motDonner, this.motADetecter)
+
                 while (this.aGagner() != true && this.tour < tourMax) {
                     this.nettoyageCase()
                     
@@ -43,14 +46,14 @@ algorithmeDunTour(){
     
                     this.afficherLesTableaux(this.tabMotADetecter, this.tabMotDonne)
                     this.comparaisonDeuxTableaux(this.tabMotADetecter, this.tabMotDonne)
-                    this.tourSuivant()
+                    this.tourSuivant(tourMax)
                             
                             if (this.motDonner == this.motDonner) {
                                 this.motDonner = document.querySelector('.promptUser').value
                                 console.log(("Rentre un NOUVEAU mot"));
                                 break
                             }
-
+                    
                 }
             }
 
@@ -94,15 +97,36 @@ afficherLesTableaux(motADetecter, motDonner){
     }
 }
 
-tourSuivant() {
-    console.log(`debut, Tour n°${this.tour}`)
+tourSuivant(tourMax) {
+    let tourHTML = document.querySelector('.tourActuel')
+    let tourMaxHTML = document.querySelector('.tourMax')
+
     this.tour++
-    console.log(`FIN, Tour n°${this.tour}`)
+    
+    tourHTML.innerHTML = this.tour
+    tourMaxHTML.innerHTML = tourMax
+}
+
+verifValeurMotDonner(){
+    if (this.motDonner.length < 5) {
+        alert('Il faut renseigné un mot de 5 lettre minimum')
+        return false
+    }
+    return true
 }
 
 aGagner(){
     if (this.motDonner == this.motADetecter) {
-        console.log("tu as gagné");
+        let affichageGagne = document.querySelector('.affichageGagne')
+        let motADetecterHTML = document.querySelector('.motAdeviner')
+        let nbTourHTML = document.querySelector('.nbTourActuel')
+        
+        
+        affichageGagne.classList.remove('invisible')
+        motADetecterHTML.innerHTML= this.motDonner
+        nbTourHTML.innerHTML= this.tour
+
+        
         return true
     }
         if (this.tour == 10) {

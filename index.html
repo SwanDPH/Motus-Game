@@ -1,88 +1,105 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Roboto:wght@300&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styleMotus.css">
     <title>Motus'Game</title>
 </head>
 
 <body>
-    <div class="promptZone">
-        <label for="">Rentre une réponse</label>
-        <input type="text" class="promptUser" placeholder="Donne un mot" maxlength="5" mminlength="5" required>
-        <button class="valideChoixUser" type="submit">validé</button>
-    </div>
-    
-<div class="zoneTour">
+
+    <div class="zoneTour">
         <p class="titreZoneTour">Tour</p>
         <p><em class="tourActuel">1</em>/<em class="tourMax">5</em></p>
-</div>
+    </div>
+
+    <div class="zoneGagne invisible">
+        <div class="affichageGagne">
+            <p>Félicitations</p>
+            <p>Vous avez Gagné !</p>
+            <p>Le mot à trouvé était : <em class="motAdeviner"></em></p>
+            <p>Et vous l'avez trouvé en <em class="nbTourActuel"></em></p>
+            <div class="zoneRejouerAnnuler">
+                <button>rejouer</button>
+                <button>annulé</button>
+            </div>
+        </div>
+    </div>
 
 
-<!-- <div class="zoneIndice">
-    <em>Indice :</em>
-    <em>azfzefezgrg</em>
-</div> -->
+    <div class="affichageChoixUtilisateur">
 
-<div class="affichageChoixUtilisateur">
-    <div class="zoneMotDevine">
-        <div class="case">
-            <span class="lettreMotADetecter L1 visible">L1</span>
+        <div class="affichagePrompt">
+            <div class="promptZone">
+                <label for="">Rentre une réponse</label>
+                <input type="text" class="promptUser" placeholder="Donne un mot" maxlength="5" mminlength="5" required>
+                <button class="valideChoixUser" type="submit">validé</button>
+            </div>
         </div>
-        <div class="case">
-            <span class="lettreMotADetecter L2 invisible">L2</span>
+
+        <div class="zoneIndice">
+            <p>Indice :<br class="indiceHTML">Fruit, rouge ou vert, comestible, riche en vitamines</br></p>
         </div>
-        <div class="case">
-            <span class="lettreMotADetecter L3 invisible">L3</span>
+
+        <p>Le mot à deviner :</p>
+        <div class="zoneMotDevine">
+            <div class="case caseMotADetecter">
+                <span class="lettreMotADetecter L1 visible">L1</span>
+            </div>
+            <div class="case caseMotADetecter">
+                <span class="lettreMotADetecter L2 invisible">L2</span>
+            </div>
+            <div class="case caseMotADetecter">
+                <span class="lettreMotADetecter L3 invisible">L3</span>
+            </div>
+            <div class="case caseMotADetecter">
+                <span class="lettreMotADetecter L4 invisible">L4</span>
+            </div>
+            <div class="case caseMotADetecter">
+                <span class="lettreMotADetecter L5 invisible">L5</span>
+            </div>
         </div>
-        <div class="case">
-            <span class="lettreMotADetecter L4 invisible">L4</span>
+
+        <p>Mot rentré Utilisateur :</p>
+        <div class="zoneMotDonne">
+            <div class="case">
+                <span class="lettreMotDonne L1 visible">L1</span>
+            </div>
+            <div class="case">
+                <span class="lettreMotDonne L2 invisible visible">L2</span>
+            </div>
+            <div class="case">
+                <span class="lettreMotDonne L3 invisible visible">L3</span>
+            </div>
+            <div class="case">
+                <span class="lettreMotDonne L4 invisible visible">L4</span>
+            </div>
+            <div class="case">
+                <span class="lettreMotDonne L5 invisible visible">L5</span>
+            </div>
         </div>
-        <div class="case">
-            <span class="lettreMotADetecter L5 invisible">L5</span>
-        </div>
+
     </div>
 
 
 
 
-    <div class="zoneMotDonne">
-        <div class="case">
-            <span class="lettreMotDonne L1 visible">L1</span>
-        </div>
-        <div class="case">
-            <span class="lettreMotDonne L2 invisible visible">L2</span>
-        </div>
-        <div class="case">
-            <span class="lettreMotDonne L3 invisible visible">L3</span>
-        </div>
-        <div class="case">
-            <span class="lettreMotDonne L4 invisible visible">L4</span>
-        </div>
-        <div class="case">
-            <span class="lettreMotDonne L5 invisible visible">L5</span>
-        </div>
-    </div>
 
-    
-    
-    <div class="affichageGagne">
-        <p>Mes félicitations</p>
-        <p>Vous avez Gagné !</p>
-        <div class="zoneRejouerAnnuler">
-        <button>rejouer</button>
-        <button>annulé</button>
-        </div>
-    </div>
-    
-
-
-
-    </body>
+</body>
 
 
 <script src="motusClass.js"></script>
 <script src="motus.js"></script>
+
 </html>

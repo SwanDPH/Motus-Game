@@ -4,19 +4,24 @@ class Joueurs {
     }
 
     recuperationDuSurnom() {
-        let surnomJoueurHTML = document.querySelector('.nomJoueur').value
-        this.surnom = surnomJoueurHTML
-
-        if (surnomJoueurHTML == "") {
+        localStorage.setItem("Surnom Joueur",`${document.querySelector('.nomJoueur').value}`)
+        
+        if (localStorage.getItem("Surnom Joueur") == "") {
             alert('Il nous faut impérativement un nom')
             return false
         } else {
+            this.surnom = localStorage.getItem("Surnom Joueur")
+
             let premierePageJeu = document.querySelector('.premierePage')
             let deuxiemePageJeu = document.querySelector('.deuxiemePage')
             premierePageJeu.classList.add('invisible')
             deuxiemePageJeu.classList.remove('invisible')
             return true
         }
+    }
+
+    scoreJoueur(){
+        
     }
 }
 
@@ -45,10 +50,11 @@ class Parties {
         this.motDonner = "?????"
 
         let classHTMLaDetecter = document.querySelectorAll('.lettreMotDonne')
-        for (let i = 0; i < this.motDonner.length; i++) {
-            classHTMLaDetecter[i].innerHTML = this.motDonner[i]
-        }
+            for (let i = 0; i < this.motDonner.length; i++) {
+                classHTMLaDetecter[i].innerHTML = this.motDonner[i]
+            }
 
+        this.tour = 0
         this.algorithmeDunTour()
     }
 
@@ -192,7 +198,6 @@ class Parties {
             let motADetecterHTML = document.querySelector('.motAdeviner')
             let nbTourHTML = document.querySelector('.nbTourActuel')
             let quitterJeuHTML = document.querySelector('.quitterJeu')
-            let ddd = document.querySelector('.quitterJeu')
             affichageGagne.classList.remove('invisible')
             motADetecterHTML.innerHTML = this.motDonner
             nbTourHTML.innerHTML = this.tour

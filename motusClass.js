@@ -170,6 +170,13 @@ class Parties {
 
         tourHTML.innerHTML = this.tour
         tourMaxHTML.innerHTML = tourMax
+
+        if (this.tour == tourMax) {
+            let zonePerdue = document.querySelector('.zonePerdue')
+            let motADetecterHTML = document.querySelector('.motAdeviner')
+            zonePerdue.classList.remove('invisible')
+            motADetecterHTML.innerHTML = this.motDonner
+        }
     }
 
     verifValeurMotDonner() {

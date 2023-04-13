@@ -5,7 +5,7 @@
 }
 
 
-.deuxiemePage{
+.deuxiemePage {
   background-color: #2d2c26;
   color: whitesmoke;
 }
@@ -16,12 +16,12 @@ body {
   flex-direction: column;
 }
 
-.svgDisquette{
+.svgDisquette {
   left: 97px;
   position: relative;
 }
 
-.premierePage{
+.premierePage {
   display: flex;
   background-color: #ffeb7d;
   width: 100%;
@@ -32,7 +32,7 @@ body {
   align-content: center;
 }
 
-.constructionJoueur{
+.constructionJoueur {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,9 +51,10 @@ body {
 
 
 .affichageChoixUtilisateur {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
+    width: 100%;
+    height: 713px;
+    display: flex;
+    flex-direction: column;
 }
 
 .zoneMotDevine {
@@ -94,7 +95,8 @@ em {
   padding: 10px;
   background-color: #f2f2f2;
   font-size: 35px;
-  color: #2d2c26;;
+  color: #2d2c26;
+  ;
 }
 
 
@@ -120,17 +122,83 @@ em {
   justify-content: center;
 }
 
-.conteneurMotEtAffichageMot{
-  
-}
-.conteneurMotEtAffichageMot>p{
+.conteneurMotEtAffichageMot>p {
   margin-left: -363px;
   margin-bottom: -7px;
 }
 
-.motUtilisateur{
+.motUtilisateur {
   margin-left: -363px;
 
+}
+
+
+.info {
+  position: fixed;
+  top: 91px;
+  left: -7px;
+  width: 61px;
+  display: inline-block;
+  padding: 12px 24px;
+  fill: #ff6600;
+  color: #fff;
+  font-size: 20px;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+}
+
+.info:hover {
+  fill: #fff;
+  color: #ff6600;
+  transform: translateY(-2px);
+}
+
+.info:active {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+
+
+
+
+
+.zoneInfo{
+  display: flex;
+  width: 424px;
+  height: 220px;
+  padding: 7px;
+  border: 1px solid black;
+  position: absolute;
+  top: 174px;
+  left: 40px;
+  background: #dfdfdf;
+  border-radius: 5px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+
+.lettreBienPlaceInfo{
+  border: 1px solid black;
+  color: black;
+  padding: 5px;
+  background: linear-gradient(337deg, rgba(0, 0, 0, 0) 0%, rgba(255, 187, 114, 1) 97%);
+}
+
+.lettreMalPlaceInfo{
+  border: 1px solid black;
+  color: black;
+  padding: 5px;
+  background: linear-gradient(337deg, rgba(0, 0, 0, 0) 0%, rgba(255, 233, 122, 1) 97%);
+}
+
+.lettreInconnuInfo{
+  border: 1px solid black;
+  color: black;
+  padding: 5px;
+  background: linear-gradient(337deg, rgba(0, 0, 0, 0) 0%, rgb(164, 164, 164) 97%);
 }
 
 
@@ -157,7 +225,8 @@ em {
   width: 250px;
   height: 50px;
 }
-.affichageTour{
+
+.affichageTour {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -166,15 +235,15 @@ em {
 }
 
 .zoneTour {
-    top: 11px;
-    left: 11px;
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    border-radius: 3px;
-    border: rgb(206, 203, 203) solid 1px;
-    width: 71px;
-    height: 65px;
+  top: 11px;
+  left: 11px;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  border-radius: 3px;
+  border: rgb(206, 203, 203) solid 1px;
+  width: 71px;
+  height: 65px;
 }
 
 .titreZoneTour::after {
@@ -187,7 +256,8 @@ em {
   left: 10px;
 }
 
-.tourActuel,.tourMax {
+.tourActuel,
+.tourMax {
   font-size: 18px;
 }
 
@@ -262,9 +332,9 @@ label {
 
 .zoneIndice>p {
   font-size: 16px;
-    position: relative;
-    letter-spacing: 6px;
-    top: -23px;
+  position: relative;
+  letter-spacing: 6px;
+  top: -23px;
 }
 
 .indiceHTML {
@@ -273,19 +343,18 @@ label {
 
 
 .wellplaced {
-  background: linear-gradient(337deg, rgba(0,0,0,0) 0%, rgba(255,187,114,1) 97%);;
-    width: 100%;
-    padding: 5px;
-    border-radius: 5px;
-    height: 100%;
+  width: 100%;
+  padding: 5px;
+  border-radius: 5px;
+  height: 100%;
 }
 
 .misplaced {
-    background: linear-gradient(337deg, rgba(0,0,0,0) 0%, rgba(255,233,122,1) 97%);
-    width: 100%;
-    padding: 5px;
-    border-radius: 5px;
-    height: 100%;
+  background: linear-gradient(337deg, rgba(0, 0, 0, 0) 0%, rgba(255, 233, 122, 1) 97%);
+  width: 100%;
+  padding: 5px;
+  border-radius: 5px;
+  height: 100%;
 }
 
 .invisible {
@@ -383,12 +452,12 @@ p {
 }
 
 
-.motAdeviner{
+.motAdeviner {
   font-size: 22px;
   color: #ffeb7d;
 }
 
-.nbTourActuel{
+.nbTourActuel {
   font-size: 22px;
   color: #ffeb7d;
 }

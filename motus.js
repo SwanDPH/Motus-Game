@@ -1,3 +1,4 @@
+window.onload = function() {
 let joueur1 = new Joueurs("swanou", 27)
 let partie1 = new Parties(joueur1, this, this, this)
 let boutonLancementJeu = document.querySelector('.bouttonCommencerLaPartie')
@@ -23,3 +24,4 @@ let bouttonQuitter = document.querySelector('.quitterJeu')
         bouttonQuitter.addEventListener('click', function () {
             partie1.rejouer()
         })
+}

@@ -4,13 +4,13 @@ class Joueurs {
     }
 
     recuperationDuSurnom() {
-        localStorage.setItem("Surnom Joueur",`${document.querySelector('.nomJoueur').value}`)
+        sessionStorage.setItem("Surnom Joueur",`${document.querySelector('.nomJoueur').value}`)
         
-        if (localStorage.getItem("Surnom Joueur") == "") {
+        if (sessionStorage.getItem("Surnom Joueur") == "") {
             alert('Il nous faut impérativement un nom')
             return false
         } else {
-            this.surnom = localStorage.getItem("Surnom Joueur")
+            this.surnom = sessionStorage.getItem("Surnom Joueur")
 
             let premierePageJeu = document.querySelector('.premierePage')
             let deuxiemePageJeu = document.querySelector('.deuxiemePage')
@@ -18,10 +18,6 @@ class Joueurs {
             deuxiemePageJeu.classList.remove('invisible')
             return true
         }
-    }
-
-    scoreJoueur(){
-        
     }
 }
 
@@ -81,7 +77,6 @@ class Parties {
             this.aGagner(this.motDonner, this.motADetecter)
 
             if (this.aGagner() == true) {
-                console.log(`Génial tu as GAGGGGGNER`)
                 let zoneGagne = document.querySelector('.zoneGagne')
                 zoneGagne.classList.remove('invisible')
             } else {
@@ -93,13 +88,11 @@ class Parties {
                         this.tabMotADetecter.push(this.motADetecter[i])
                         i++
                     }
-                    console.log(`tableau lettre à detecter = ${this.tabMotADetecter}`);
 
                     while (y < this.motDonner.length) {
                         this.tabMotDonne.push(this.motDonner[y])
                         y++
                     }
-                    console.log(`tableau lettre à donner = ${this.tabMotDonne}`);
 
                     this.afficherLesTableaux(this.tabMotADetecter, this.tabMotDonne)
                     this.comparaisonDeuxTableaux(this.tabMotADetecter, this.tabMotDonne)
@@ -107,7 +100,7 @@ class Parties {
 
                     if (this.motDonner == this.motDonner) {
                         this.motDonner = document.querySelector('.promptUser').value
-                        console.log(("Rentre un NOUVEAU mot"));
+                        console.log('Rentrer un NOUVEAU mot')
                         break
                     }
 
@@ -135,13 +128,11 @@ class Parties {
 
         for (let i = 0; i < motADetecter.length; i++) {
             if (motDonner[i].includes(motADetecter[i])) {
-                console.log(`Input User LETTRE BIEN PLACE : ${motDonner[i]}`);
                 classHTMDonner[i].classList.add('wellplaced')
                 continue
             }
 
             if (motADetecter.includes(motDonner[i]) && motDonner[i].includes(motADetecter[i]) == false) {
-                console.log(`Input User mais lettre MAL PLACE : ${motADetecter[i]}`);
                 classHTMDonner[i].classList.add('misplaced')
                 continue
             }
@@ -208,9 +199,6 @@ class Parties {
 
 
             return true
-        }
-        if (this.tour == 10) {
-            console.log("vous avez perdu");
         }
     }
 

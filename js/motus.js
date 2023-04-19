@@ -5,6 +5,7 @@ window.addEventListener('load', () => {
         let bouttonValideChoix = document.querySelector('.valideChoixUser')
         let bouttonRejouer = document.querySelector('.rejouer')
         let bouttonQuitter = document.querySelector('.quitterJeu')
+        let bouttonInfo = document.querySelector('.info')
 
                 boutonLancementJeu.addEventListener('click', function () {
                     joueur1.recuperationDuSurnom()
@@ -22,5 +23,9 @@ window.addEventListener('load', () => {
                 
                 bouttonQuitter.addEventListener('click', function () {
                     partie1.rejouer()
+                })
+
+                bouttonInfo.addEventListener('click', function () {
+                    partie1.affichageZoneInfo()
                 })
 })

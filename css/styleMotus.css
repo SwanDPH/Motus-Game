@@ -357,6 +357,7 @@ label {
 
 
 .wellplaced {
+  background: linear-gradient(337deg, rgba(0, 0, 0, 0) 0%, rgb(240, 154, 7) 97%);
   width: 100%;
   padding: 5px;
   border-radius: 5px;
